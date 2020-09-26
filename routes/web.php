@@ -14,4 +14,7 @@ use App\Http\Controllers\Users\UsersController;
 */
 
 
-Route::get('users',[UsersController::class, 'index']);
+Route::get('users',[UsersController::class, 'index'])->name('users.index');
+Route::get('users/create',[UsersController::class, 'created'])->name('users.create');
+Route::post('users',[UsersController::class, 'store'])->name('users.store');
+Route::delete('users/{id}',[UsersController::class, 'destroy'])->name('users.delete');

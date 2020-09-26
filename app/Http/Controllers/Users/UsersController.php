@@ -16,11 +16,12 @@ class UsersController extends Controller
     }  
     //get
     public function created() { 
-
+        return view('users.create');
     } 
     //post
-    public function store() {
-
+    public function store(Request $request) {
+        $user= User::create($request->all());
+        return redirect()->route('users.index') ;
     } 
     //get
     public function edit() {
@@ -31,7 +32,8 @@ class UsersController extends Controller
 
     }   
     //delete//post  
-    public function destroy() {
-
+    public function destroy($id) {
+        $user= User::find($id)->Delete();
+        return redirect()->route('users.index') ;
     }   
 }

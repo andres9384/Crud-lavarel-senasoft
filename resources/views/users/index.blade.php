@@ -10,7 +10,10 @@
 </head>
 
 <body>
+
+
     <div class="container">
+       
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive">
@@ -33,16 +36,24 @@
                                 <td>{{ $user->email}}</td>
                                 <td>{{ $user->created_at}}</td>
                                 <td>
-
-                                <button class="btn btn-info">Detalles</button>
-                                <button class="btn btn-warning">Editar</button>
-                                <button class="btn btn-danger">Eliminar</button>
+                                
+                                <form action="{{route('users.delete', $user->id)}}" method="POST">
+                                @csrf    
+                                @method('DELETE')
+                                
+                                
+                                <a class="btn btn-info">Detalles</a>
+                                <a class="btn btn-warning">Editar</a>
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
                                 </td>
                                 
                             </tr>
                             @endforeach
+                            
                         </tbody>
                     </table>
+                    <a href=" {{ route('users.create')  }} "><button class="btn btn-info">Crear un usuario</button></a>
                 </div>
             </div>
         </div>
