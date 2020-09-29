@@ -24,12 +24,14 @@ class UsersController extends Controller
         return redirect()->route('users.index') ;
     } 
     //get
-    public function edit() {
-
+    public function edit($id) {
+        $users = User::find($id);
+        return view('users.edit',compact('users'));
     }  
     //put//post
-    public function update() {
-
+    public function update(Request $request, $id) {
+        $user= User::find($id)->update($request->all());
+        return redirect()->route('users.index');
     }   
     //delete//post  
     public function destroy($id) {

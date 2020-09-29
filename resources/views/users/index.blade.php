@@ -24,6 +24,7 @@
                                 <th>APELLIDO </th>
                                 <th>CORREO</th>
                                 <th>FECHA CREACION</th>
+                                
                                 <th>OPCIONES</th>
                             </tr>
                         </thead>
@@ -35,6 +36,7 @@
                                 <td>{{ $user->lastname}}</td>
                                 <td>{{ $user->email}}</td>
                                 <td>{{ $user->created_at}}</td>
+                               
                                 <td>
                                 
                                 <form action="{{route('users.delete', $user->id)}}" method="POST">
@@ -43,7 +45,7 @@
                                 
                                 
                                 <a class="btn btn-info">Detalles</a>
-                                <a class="btn btn-warning">Editar</a>
+                                <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning">Editar</a>
                                 <button type="submit" class="btn btn-danger">Eliminar</button>
                                 </form>
                                 </td>
